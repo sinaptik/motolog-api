@@ -1,8 +1,9 @@
 var jwt = require('jwt-simple');
 
 module.exports = function (req, res, next) {
+
     if (!req.headers.authorization) {
-        return handleError;
+        return res.forbidden('No auth header');
     }
 
     var token = req.headers.authorization.split(' ')[1];
@@ -10,16 +11,10 @@ module.exports = function (req, res, next) {
     var payload = jwt.decode(token, config.TOKEN_SECRET);
 
     if (!payload.sub) {
-        return handleError;
+        return res.forbidden('No user id in payload');
     }
 
     req.userId = payload.sub;
 
     next();
-}
-
-function handleError() {
-    return res.status(401).send({
-        error: 'You are not authorized'
-    });
 }
