@@ -28,10 +28,17 @@ module.exports.policies = {
 
     // '*': true,
 
+    UserController: {
+        '*': ['jwtAuth'],
+        googleLogin: true
+    },
+
     VehicleController: {
-        myVehicles: ['jwtAuth'],
-        addVehicle: ['jwtAuth'],
-        destroy: ['jwtAuth']
+        '*': ['jwtAuth']
+    },
+
+    FuelUpController: {
+        '*': ['jwtAuth']
     }
 
     /***************************************************************************
