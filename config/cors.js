@@ -47,7 +47,7 @@ module.exports.cors = {
      *                                                                          *
      ***************************************************************************/
 
-    origin: 'http://motolog.herokuapp.com',
+    origin: ['http://motolog.herokuapp.com', 'http://www.motolog.co.nz'],
 
     /***************************************************************************
      *                                                                          *
