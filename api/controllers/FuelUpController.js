@@ -6,6 +6,20 @@
  */
 
 module.exports = {
-	
-};
+    addFuelUp: function (req, res) {
+        User.findOne(req.userId, function (err, user) {
 
+            //check is vehicle exists?
+
+            FuelUp.create({
+                litres: req.body.litres,
+                costPerLitre: req.body.costPerLitre,
+                kilometersSinceLastFuelUp: req.body.kilometersSinceLastFuelUp,
+                vehicle: req.body.vehicle,
+                owner: req.userId
+            }).exec(function (err, post) {
+                res.status(200).end();
+            });
+        });
+    }
+};
