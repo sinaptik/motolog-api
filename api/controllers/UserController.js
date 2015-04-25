@@ -212,7 +212,13 @@ module.exports = {
                             });
                         }
 
-                        User.create({
+
+                        //no new users
+                        return res.forbidden('You do not have access');
+
+                        //create new user
+
+                        /*User.create({
                             google: profile.sub,
                             picture: profile.picture.replace('sz=50', 'sz=200'),
                             displayName: profile.name
@@ -221,7 +227,7 @@ module.exports = {
                             res.send({
                                 token: token
                             });
-                        });
+                        });*/
                     });
                 }
             });
