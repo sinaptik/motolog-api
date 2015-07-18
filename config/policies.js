@@ -39,6 +39,10 @@ module.exports.policies = {
 
     FuelUpController: {
         '*': ['jwtAuth']
+    },
+
+    MaintenanceController: {
+        '*': ['jwtAuth']
     }
 
     /***************************************************************************

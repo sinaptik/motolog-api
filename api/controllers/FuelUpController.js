@@ -9,7 +9,7 @@ module.exports = {
     addFuelUp: function (req, res) {
         User.findOne(req.userId, function (err, user) {
 
-            //check is vehicle exists?
+            //TODO: check is vehicle exists?
 
             FuelUp.create({
                 litres: req.body.litres,
