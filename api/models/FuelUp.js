@@ -10,6 +10,7 @@ module.exports = {
         litres: 'float',
         costPerLitre: 'float',
         kilometersSinceLastFuelUp: 'float',
+
         vehicle: {
             model: 'vehicle'
         },
